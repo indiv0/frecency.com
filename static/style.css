@@ -1,0 +1,68 @@
+* {
+  /*
+   * Configure all elements to use the more intuitive border-box sizing model.
+   * This makes it so that when specifying the padding and border of an element,
+   * it no longer increases its width. So developers no longer have to do math
+   * to calculate appropriate widths for elements.
+   */
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#main {
+  /*
+   * Set max-width to prevent the container from stretching to the borders of
+   * the screen. We use `max-width` instead of `width` to prevent the browser
+   * from creating a horizontal scrollbar if the browser window is narrower than
+   * the width of the element.
+   */
+  max-width: 600px;
+  /*
+   * Set the margins to `auto` so that the element is horizontally centered
+   * within its container. The element will take up the specified with and the
+   * remainder will be split evenly between the two margins.
+   */
+  margin: 0 auto;
+  /*
+   * Set the padding to `20px` to give the body of the page some space between
+   * it and the borders.
+   */
+  padding: 21px;
+}
+
+table {
+  /*
+   * Setting the `table-layout` and `width` properties along with the
+   * `word-wrap: break-word` property of `td` ensures that over-long cells in
+   * tables don't cause the table to overflow the browser window.
+   */
+  table-layout: fixed;
+  width: 100%;
+}
+
+td {
+  word-wrap: break-word;
+}
+
+code {
+  /*
+   * Make `code` elements soft-wrap lines of code instead of not wrapping them
+   * at all. This prevents the contents of the `code` element from extending its
+   * width beyond the width of the browser window.
+   */
+  white-space: pre-wrap;
+  font-size: 16px;
+}
+
+pre {
+  /*
+   * Add padding to `pre` blocks, to ensure that the code inside isn't right up
+   * against the border of the element.
+   */
+  padding: 20px;
+}
+
+table {
+  margin: 0 auto;
+}
