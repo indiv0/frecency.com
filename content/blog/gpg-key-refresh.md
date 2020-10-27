@@ -90,10 +90,10 @@ Is this correct? (y/N) y
 GnuPG needs to construct a user ID to identify your key.
 
 Real name: Nikita Pekin
-Email address: nikita@frecency.com
+Email address: personal@example.com
 Comment: 
 You selected this USER-ID:
-    "Nikita Pekin <nikita@frecency.com>"
+    "Nikita Pekin <personal@example.com>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 We need to generate a lot of random bytes. It is a good idea to perform
@@ -106,7 +106,7 @@ public and secret key created and signed.
 
 pub   ed25519/0x4264C0ABC8A52CC1 2020-10-27 [C] [expires: 2021-10-27]
       Key fingerprint = 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1
-uid                              Nikita Pekin <nikita@frecency.com>
+uid                              Nikita Pekin <personal@example.com>
 ```
 
 We've created a master key with the fingerprint `4264C0ABC8A52CC1`.
@@ -121,7 +121,7 @@ gpg: next trustdb check due at 2021-10-27
 -------------------------------
 pub   ed25519/0x4264C0ABC8A52CC1 2020-10-27 [C] [expires: 2021-10-27]
       Key fingerprint = 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1
-uid                   [ultimate] Nikita Pekin <nikita@frecency.com>
+uid                   [ultimate] Nikita Pekin <personal@example.com>
 ```
 
 Add the encryption key with the `addkey` command:
@@ -136,7 +136,7 @@ Secret key is available.
 sec  ed25519/0x4264C0ABC8A52CC1
      created: 2020-10-27  expires: 2021-10-27  usage: C   
      trust: ultimate      validity: ultimate
-[ultimate] (1). Nikita Pekin <nikita@frecency.com>
+[ultimate] (1). Nikita Pekin <personal@example.com>
 
 gpg> addkey
 Please select what kind of key you want:
@@ -195,7 +195,7 @@ sec  ed25519/0x4264C0ABC8A52CC1
      trust: ultimate      validity: ultimate
 ssb  rsa4096/0x4B1922292563DA2D
      created: 2020-10-27  expires: 2021-10-27  usage: E   
-[ultimate] (1). Nikita Pekin <nikita@frecency.com>
+[ultimate] (1). Nikita Pekin <personal@example.com>
 ```
 
 We've created an encryption key with the fingerprint `4B1922292563DA2D`.
@@ -256,7 +256,7 @@ ssb  rsa4096/0x4B1922292563DA2D
      created: 2020-10-27  expires: 2021-10-27  usage: E   
 ssb  ed25519/0xF7AD7C72CECB97FB
      created: 2020-10-27  expires: 2021-10-27  usage: S   
-[ultimate] (1). Nikita Pekin <nikita@frecency.com>
+[ultimate] (1). Nikita Pekin <personal@example.com>
 
 gpg> addkey
 Please select what kind of key you want:
@@ -333,7 +333,7 @@ ssb  ed25519/0xF7AD7C72CECB97FB
      created: 2020-10-27  expires: 2021-10-27  usage: S   
 ssb  ed25519/0x7BAD5F7DD968CD98
      created: 2020-10-27  expires: 2021-10-27  usage: A   
-[ultimate] (1). Nikita Pekin <nikita@frecency.com>
+[ultimate] (1). Nikita Pekin <personal@example.com>
 ```
 
 Thus, the signing and authentication key fingerprints are `F7AD7C72CECB97FB`
@@ -347,7 +347,7 @@ Generate a revocation certificate for the event of theft of the master key.
 ```
 [indiv0@apollo 2020-10-26_gpg_key_refresh]$ gpg --output 4264C0ABC8A52CC1.rev --gen-revoke 4264C0ABC8A52CC1
 
-sec  ed25519/0x4264C0ABC8A52CC1 2020-10-27 Nikita Pekin <nikita@frecency.com>
+sec  ed25519/0x4264C0ABC8A52CC1 2020-10-27 Nikita Pekin <personal@example.com>
 
 Create a revocation certificate for this key? (y/N) y
 Please select the reason for the revocation:
@@ -394,7 +394,7 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
 
-sec  ed25519/0x4264C0ABC8A52CC1 2020-10-27 Nikita Pekin <nikita@frecency.com>
+sec  ed25519/0x4264C0ABC8A52CC1 2020-10-27 Nikita Pekin <personal@example.com>
 
 Delete this key from the keyring? (y/N) y
 This is a secret key! - really delete? (y/N) y
@@ -403,7 +403,7 @@ This is a secret key! - really delete? (y/N) y
 Then, import only the private keys of the subkeys:
 ```
 [indiv0@apollo 2020-10-26_gpg_key_refresh]$ gpg --import 4264C0ABC8A52CC1.sub_priv.asc 
-gpg: key 0x4264C0ABC8A52CC1: "Nikita Pekin <nikita@frecency.com>" not changed
+gpg: key 0x4264C0ABC8A52CC1: "Nikita Pekin <personal@example.com>" not changed
 gpg: To migrate 'secring.gpg', with each smartcard, run: gpg --card-status
 gpg: key 0x4264C0ABC8A52CC1: secret key imported
 gpg: Total number processed: 1
@@ -419,7 +419,7 @@ Verify that only the private keys of the subkeys are present.
 -------------------------------
 sec#  ed25519/0x4264C0ABC8A52CC1 2020-10-27 [C] [expires: 2021-10-27]
       Key fingerprint = 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1
-uid                   [ultimate] Nikita Pekin <nikita@frecency.com>
+uid                   [ultimate] Nikita Pekin <personal@example.com>
 ssb   rsa4096/0x4B1922292563DA2D 2020-10-27 [E] [expires: 2021-10-27]
 ssb   ed25519/0xF7AD7C72CECB97FB 2020-10-27 [S] [expires: 2021-10-27]
 ssb   ed25519/0x7BAD5F7DD968CD98 2020-10-27 [A] [expires: 2021-10-27]
@@ -435,33 +435,33 @@ work key.
 ```
 gpg> adduid
 Real name: Nikita Pekin
-Email address: npekin@rbbn.com
+Email address: work2@example.com
 Comment: 
 You selected this USER-ID:
-    "Nikita Pekin <npekin@rbbn.com>"
+    "Nikita Pekin <work2@example.com>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 
 sec  ed25519/0x8D9358ECD4A65A32
      created: 2020-10-27  expires: 2021-10-27  usage: C   
      trust: ultimate      validity: ultimate
-[ultimate] (1)  Nikita Pekin <nikita.pekin@kandy.io>
-[ unknown] (2). Nikita Pekin <npekin@rbbn.com>
+[ultimate] (1)  Nikita Pekin <work1@example.com>
+[ unknown] (2). Nikita Pekin <work2@example.com>
 
 gpg> uid 2
 
 sec  ed25519/0x8D9358ECD4A65A32
      created: 2020-10-27  expires: 2021-10-27  usage: C   
      trust: ultimate      validity: ultimate
-[ultimate] (1)  Nikita Pekin <nikita.pekin@kandy.io>
-[ unknown] (2)* Nikita Pekin <npekin@rbbn.com>
+[ultimate] (1)  Nikita Pekin <work1@example.com>
+[ unknown] (2)* Nikita Pekin <work2@example.com>
 
 gpg> trust
 sec  ed25519/0x8D9358ECD4A65A32
      created: 2020-10-27  expires: 2021-10-27  usage: C   
      trust: ultimate      validity: ultimate
-[ultimate] (1)  Nikita Pekin <nikita.pekin@kandy.io>
-[ unknown] (2)* Nikita Pekin <npekin@rbbn.com>
+[ultimate] (1)  Nikita Pekin <work1@example.com>
+[ unknown] (2)* Nikita Pekin <work2@example.com>
 
 Please decide how far you trust this user to correctly verify other users' keys
 (by looking at passports, checking fingerprints from different sources, etc.)
@@ -479,8 +479,8 @@ Do you really want to set this key to ultimate trust? (y/N) y
 sec  ed25519/0x8D9358ECD4A65A32
      created: 2020-10-27  expires: 2021-10-27  usage: C   
      trust: ultimate      validity: ultimate
-[ultimate] (1)  Nikita Pekin <nikita.pekin@kandy.io>
-[ unknown] (2)* Nikita Pekin <npekin@rbbn.com>
+[ultimate] (1)  Nikita Pekin <work1@example.com>
+[ unknown] (2)* Nikita Pekin <work2@example.com>
 
 gpg> save
 ```
@@ -492,15 +492,15 @@ I ended up with the following key list in the end:
 -------------------------------
 sec#  ed25519/0x4264C0ABC8A52CC1 2020-10-27 [C] [expires: 2021-10-27]
       Key fingerprint = 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1
-uid                   [ultimate] Nikita Pekin <nikita@frecency.com>
+uid                   [ultimate] Nikita Pekin <personal@example.com>
 ssb   rsa4096/0x4B1922292563DA2D 2020-10-27 [E] [expires: 2021-10-27]
 ssb   ed25519/0xF7AD7C72CECB97FB 2020-10-27 [S] [expires: 2021-10-27]
 ssb   ed25519/0x7BAD5F7DD968CD98 2020-10-27 [A] [expires: 2021-10-27]
 
 sec#  ed25519/0x8D9358ECD4A65A32 2020-10-27 [C] [expires: 2021-10-27]
       Key fingerprint = 846F 4458 2952 EEC3 B275  6F1F 8D93 58EC D4A6 5A32
-uid                   [ultimate] Nikita Pekin <npekin@rbbn.com>
-uid                   [ultimate] Nikita Pekin <nikita.pekin@kandy.io>
+uid                   [ultimate] Nikita Pekin <work2@example.com>
+uid                   [ultimate] Nikita Pekin <work1@example.com>
 ssb   rsa4096/0x9F4B2DDF8049967B 2020-10-27 [E] [expires: 2021-10-27]
 ssb   ed25519/0x05259179BC027533 2020-10-27 [S] [expires: 2021-10-27]
 ssb   ed25519/0xB3A681B5B1CA424A 2020-10-27 [A] [expires: 2021-10-27]
@@ -547,7 +547,7 @@ sec  rsa4096/0x99FA8C40093C34AC
      trust: unknown       validity: expired
 ssb  rsa4096/0x82DC1CF7FDE3DF1F
      created: 2016-12-14  expired: 2018-12-14  usage: E   
-[ expired] (1). Nikita Pekin <contact@nikitapek.in>
+[ expired] (1). Nikita Pekin <foo@example.com>
 
 gpg> revkey
 Do you really want to revoke the entire key? (y/N) y
@@ -565,14 +565,14 @@ Reason for revocation: Key is superseded
 Key has been superseded by new keys 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1 (personal) and 846F 4458 2952 EEC3 B275  6F1F 8D93 58EC D4A6 5A32 (work).
 Is this okay? (y/N) y
 
-The following key was revoked on 2020-10-27 by RSA key 0x99FA8C40093C34AC Nikita Pekin <contact@nikitapek.in>
+The following key was revoked on 2020-10-27 by RSA key 0x99FA8C40093C34AC Nikita Pekin <foo@example.com>
 sec  rsa4096/0x99FA8C40093C34AC
      created: 2016-12-14  revoked: 2020-10-27  usage: SC  
      trust: unknown       validity: revoked
-The following key was revoked on 2020-10-27 by RSA key 0x99FA8C40093C34AC Nikita Pekin <contact@nikitapek.in>
+The following key was revoked on 2020-10-27 by RSA key 0x99FA8C40093C34AC Nikita Pekin <foo@example.com>
 ssb  rsa4096/0x82DC1CF7FDE3DF1F
      created: 2016-12-14  revoked: 2020-10-27  usage: E   
-[ revoked] (1). Nikita Pekin <contact@nikitapek.in>
+[ revoked] (1). Nikita Pekin <foo@example.com>
 
 gpg> save
 [indiv0@apollo 2020-10-26_gpg_key_refresh]$ gpg --edit-key 8558129A36D54E73
@@ -587,7 +587,7 @@ sec  rsa4096/0x8558129A36D54E73
      trust: unknown       validity: unknown
 ssb  rsa4096/0xE96501EEE6721CA4
      created: 2015-01-13  expires: never       usage: E   
-[ unknown] (1). Nikita Pekin <contact@nikitapek.in>
+[ unknown] (1). Nikita Pekin <foo@example.com>
 
 gpg> revkey
 Do you really want to revoke the entire key? (y/N) y
@@ -605,14 +605,14 @@ Reason for revocation: Key is superseded
 Key has been superseded by new keys 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1 (personal) and 846F 4458 2952 EEC3 B275  6F1F 8D93 58EC D4A6 5A32 (work).
 Is this okay? (y/N) y
 
-The following key was revoked on 2020-10-27 by RSA key 0x8558129A36D54E73 Nikita Pekin <contact@nikitapek.in>
+The following key was revoked on 2020-10-27 by RSA key 0x8558129A36D54E73 Nikita Pekin <foo@example.com>
 sec  rsa4096/0x8558129A36D54E73
      created: 2015-01-13  revoked: 2020-10-27  usage: SC  
      trust: unknown       validity: revoked
-The following key was revoked on 2020-10-27 by RSA key 0x8558129A36D54E73 Nikita Pekin <contact@nikitapek.in>
+The following key was revoked on 2020-10-27 by RSA key 0x8558129A36D54E73 Nikita Pekin <foo@example.com>
 ssb  rsa4096/0xE96501EEE6721CA4
      created: 2015-01-13  revoked: 2020-10-27  usage: E   
-[ revoked] (1). Nikita Pekin <contact@nikitapek.in>
+[ revoked] (1). Nikita Pekin <foo@example.com>
 
 gpg> save
 [indiv0@apollo 2020-10-26_gpg_key_refresh]$ gpg --edit-key A63C40C35614D8D6
@@ -635,7 +635,7 @@ ssb  ed25519/0x29E24F74E09A5E6B
      created: 2018-12-16  expires: 2020-12-15  usage: S   
 ssb  ed25519/0x293943476C14D67D
      created: 2018-12-16  expires: 2020-12-15  usage: A   
-[ unknown] (1). Nikita Pekin <nikita@pekin.io>
+[ unknown] (1). Nikita Pekin <bar@example.com>
 
 gpg> revkey
 Do you really want to revoke the entire key? (y/N) y
@@ -653,20 +653,20 @@ Reason for revocation: Key is superseded
 Key has been superseded by new keys 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1 (personal) and 846F 4458 2952 EEC3 B275  6F1F 8D93 58EC D4A6 5A32 (work).
 Is this okay? (y/N) y
 
-The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <nikita@pekin.io>
+The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <bar@example.com>
 sec  ed25519/0xA63C40C35614D8D6
      created: 2018-12-16  revoked: 2020-10-27  usage: C   
      trust: unknown       validity: revoked
-The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <nikita@pekin.io>
+The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <bar@example.com>
 ssb  cv25519/0xA37CBCCC793F7304
      created: 2018-12-16  revoked: 2020-10-27  usage: E   
-The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <nikita@pekin.io>
+The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <bar@example.com>
 ssb  ed25519/0x29E24F74E09A5E6B
      created: 2018-12-16  revoked: 2020-10-27  usage: S   
-The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <nikita@pekin.io>
+The following key was revoked on 2020-10-27 by ? key 0xA63C40C35614D8D6 Nikita Pekin <bar@example.com>
 ssb  ed25519/0x293943476C14D67D
      created: 2018-12-16  revoked: 2020-10-27  usage: A   
-[ revoked] (1). Nikita Pekin <nikita@pekin.io>
+[ revoked] (1). Nikita Pekin <bar@example.com>
 
 gpg> save
 [indiv0@apollo 2020-10-26_gpg_key_refresh]$ gpg --edit-key 5CA3587585FEBB49
@@ -689,7 +689,7 @@ ssb  ed25519/0x2BDD3761AD436884
      created: 2018-12-18  expires: 2020-12-17  usage: S   
 ssb  ed25519/0x2AD6EDFB2D211DD4
      created: 2018-12-18  expires: 2020-12-17  usage: A   
-[ unknown] (1). Nikita Pekin <nikita@nikitapekin.com>
+[ unknown] (1). Nikita Pekin <baz@example.com>
 
 gpg> revkey
 Do you really want to revoke the entire key? (y/N) y
@@ -707,20 +707,20 @@ Reason for revocation: Key is superseded
 Key has been superseded by new keys 3736 3F2B 2EF6 132D 4DA2  AECE 4264 C0AB C8A5 2CC1 (personal) and 846F 4458 2952 EEC3 B275  6F1F 8D93 58EC D4A6 5A32 (work).
 Is this okay? (y/N) y
 
-The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <nikita@nikitapekin.com>
+The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <baz@example.com>
 sec  ed25519/0x5CA3587585FEBB49
      created: 2018-12-18  revoked: 2020-10-27  usage: C   
      trust: unknown       validity: revoked
-The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <nikita@nikitapekin.com>
+The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <baz@example.com>
 ssb  cv25519/0xBF05CC4D5C9DE040
      created: 2018-12-18  revoked: 2020-10-27  usage: E   
-The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <nikita@nikitapekin.com>
+The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <baz@example.com>
 ssb  ed25519/0x2BDD3761AD436884
      created: 2018-12-18  revoked: 2020-10-27  usage: S   
-The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <nikita@nikitapekin.com>
+The following key was revoked on 2020-10-27 by ? key 0x5CA3587585FEBB49 Nikita Pekin <baz@example.com>
 ssb  ed25519/0x2AD6EDFB2D211DD4
      created: 2018-12-18  revoked: 2020-10-27  usage: A   
-[ revoked] (1). Nikita Pekin <nikita@nikitapekin.com>
+[ revoked] (1). Nikita Pekin <baz@example.com>
 
 gpg> save
 ```
