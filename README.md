@@ -15,3 +15,14 @@ docker run --rm\
     -v $(pwd)/templates:/app/templates\
     --publish 1111:1111 zola serve --interface 0.0.0.0
 ```
+
+Build the website for publishing:
+```sh
+docker run --rm\
+    -v $(pwd)/config.toml:/app/config.toml\
+    -v $(pwd)/content:/app/content\
+    -v $(pwd)/dist:/app/dist\
+    -v $(pwd)/static:/app/static\
+    -v $(pwd)/templates:/app/templates\
+    --publish 1111:1111 zola build --output-dir dist/public
+```
