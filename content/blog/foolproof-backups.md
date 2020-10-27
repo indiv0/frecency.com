@@ -1,6 +1,7 @@
 +++
 title = "Foolproof Backups"
 date = 2020-06-04
+draft = true
 +++
 
 I want to configure a backup system that ensures I can be confident about never
