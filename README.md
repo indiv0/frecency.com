@@ -26,3 +26,8 @@ docker run --rm\
     -v $(pwd)/templates:/app/templates\
     --publish 1111:1111 zola build --output-dir dist/public
 ```
+
+Deploy the website to S3:
+```
+aws s3 cp --recursive dist/public/ s3://blog.frecency.dev/
+```
