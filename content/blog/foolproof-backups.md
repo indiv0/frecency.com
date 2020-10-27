@@ -1,8 +1,53 @@
 +++
 title = "Foolproof Backups"
-date = 2020-06-04
+date = 2020-10-27
 draft = true
 +++
+
+First, I need to get all my files together for a fresh backup. Currently
+things are spread between a few services and devices. To start with, I copy
+data from all my local disk & USB drives onto a single one. Then, I copy all
+my previous disparate backups from my [rsync.net](https://rsync.net) (great
+service, BTW) host to my local machine. To do so, I first copy my SSH key to
+the remote host:
+```sh
+scp ~/.ssh/id_ed25519.pub 11111@ch-s111.rsync.net:.ssh/
+```
+
+I use lftp in parallel mirror mode as scp would copy each file sequentially,
+and tar is not available on the remote host to create a single archive for
+transfer. I had a lot of small files on the server, so I used `--parallel=20`
+to download 20 files in parallel. If I had a lot of large files, I would've
+wanted to download them with segmentation, so I would've used some combination
+of `--parallel` and `--use-pget-n=10`. Note that the total number of
+connections is proportional to both options, so if you use
+`--parallel=10 --use-pget-n=10` you'll open 100 connections, which could
+potentially get you in trouble or exhaust the number of available connections
+on the server. The below command will mirror the remote directory
+(for example, `/data1/home/11111` in my case) to your current local directory
+(for example, `/home/indiv0/usr/2020-10-27_rsync_net_backup` in my case).
+```sh
+lftp -e "mirror --verbose --continue --parallel=20" sftp://11111@ch-s111.rsync.net
+```
+
+Next, I need to download my Tarsnap backups, so I install tarsnap and use it
+to clone my remote backups to my local drive. I don't have the cache locally
+so I need to fetch it as well. Clone only the latest archives.
+```sh
+sudo pacman -S tarsnap
+tarsnap --fsck --keyfile ~/tmp/lifeboat/tarsnap.key --cachedir .cache
+tarsnap --keyfile ~/tmp/lifeboat/tarsnap.key --cachedir .cache -x -f data-20160305-001733 "*"
+tarsnap --keyfile ~/tmp/lifeboat/tarsnap.key --cachedir .cache -x -f doc-20160305-001601
+tarsnap --keyfile ~/tmp/lifeboat/tarsnap.key --cachedir .cache -x -f mail-20160305-001711
+...
+```
+
+First, install `borg`.
+```sh
+sudo pacman -S borg
+```
+
+# Remove
 
 I want to configure a backup system that ensures I can be confident about never
 losing data.
