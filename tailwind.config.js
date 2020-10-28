@@ -4,4 +4,5 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   purge: ['./templates/**/*.html'],
+  plugins: [require('@tailwindcss/typography')],
 }

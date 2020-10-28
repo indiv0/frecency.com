@@ -1,28 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="main">
-  <header>
-    <span><a href="/">Home</a></span>
-    <span><a href="/blog/">Blog</a></span>
-  </header>
-  <p>
-    Hi, I'm Nikita! I'm a software developer living in Canada. I like to make
-    things that people use or enjoy. Sometimes that's
-    <a href="https://github.com/indiv0">code</a>, sometimes that's
-    <a href="/blog/">writing</a>, and sometimes it's music.
-  </p>
-  <p>Contact info:</p>
-  <ul>
-    <li>email: nikita &#64; frecency dot com</li>
-    <li>indiv0 <a href="https://github.com/indiv0">on github</a></li>
-    <li><a href="4264C0ABC8A52CC1.pub.asc">Public key</a> fingerprint:
+<div class="text-center text-6xl font-sans">#!</div>
+<p>
+  Hi, I'm Nikita! I'm a software developer living in Canada. I like to make
+  things that people use or enjoy. Sometimes that's
+  <a href="https://github.com/indiv0">code</a>, sometimes that's
+  <a href="/blog/">writing</a>, and sometimes it's music.
+</p>
+<p>Contact info:</p>
+<ul>
+  <li>
+    <span>
+      <svg class="mr-2 inline-block" style="vertical-align: -0.125em" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <path d="M2 26 L30 26 30 6 2 6 Z M2 6 L16 16 30 6"></path>
+      </svg>
+      nikita &#64; frecency dot com
+    </span>
+  </li>
+  <li>
+    <span>
+      <svg class="mr-2 inline-block" style="vertical-align: -0.125em" viewBox="0 0 64 64" width="16" height="16">
+        <path stroke-width="0" fill="currentColor" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z"></path>
+          </svg>
+      indiv0 <a href="https://github.com/indiv0">on github</a>
+    </span>
+  </li>
+  <li>
+    <span>
+      <svg class="mr-2 inline-block" style="vertical-align: -0.125em" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <path d="M5 15 L5 30 27 30 27 15 Z M9 15 C9 9 9 5 16 5 23 5 23 9 23 15 M16 20 L16 23"></path>
+        <circle cx="16" cy="24" r="1"></circle>
+      </svg>
+      <a href="4264C0ABC8A52CC1.pub.asc">Public key</a> fingerprint:
       <p id="fingerprint">
         3736 3F2B 2EF6 132D 4DA2<br>
-	AECE 4264 C0AB C8A5 2CC1
+        AECE 4264 C0AB C8A5 2CC1
       </p>
-    </li>
-  </ul>
-  <div id="footer">&#169; 2014-2020 Nikita Pekin</div>
-</div>
+    </span>
+  </li>
+</ul>
 {% endblock content %}

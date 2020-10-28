@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="main">
-  <header>
-    <span><a href="/">Home</a></span>
-    <span><a href="/blog/">Blog</a></span>
-  </header>
-  <h1 class="title">
-    {{ page.title }}
-  </h1>
-  <p class="subtitle"><strong>{{ page.date }}</strong></p>
-  <p>{{ page.content | safe }}</p>
-</div>
+<header>
+  <h1 itemprop="headline">{{ page.title }}</h1>
+    <svg class="inline-block" style="vertical-align: -0.125em" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+			<path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+    Published: <strong>{{ page.date }}</strong>
+</header>
+<p>{{ page.content | safe }}</p>
 {% endblock content %}

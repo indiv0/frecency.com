@@ -2,11 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>frecency</title>
   <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-  {% block content %}{% endblock %}
+<body class="flex flex-col h-screen">
+  {% block header %}
+    {% if config.extra.frecency_menu %}
+      {% set home = current_path == "/" %}
+      <header class="flex {% if home %}justify-end{% else %}justify-between{% endif %} border-b pt-4">
+        {% if home == false %}
+        <a class="py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="..">
+          <svg class="inline-block" style="vertical-align: -0.125em" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M22 30 L6 16 22 2 Z"></path>
+          </svg>
+          Back
+        </a>
+        {% endif %}
+        <nav>
+          <ul class="-mb-px">
+            {% for item in config.extra.frecency_menu %}
+              {% if item.url | replace(from="$BASE_URL", to=config.base_url) == current_url %}
+              <li class="bg-white mr-1 inline-block">
+                <span class="inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold">{{ item.name }}</span>
+              </li>
+              {% else %}
+              <li class="mr-1 inline-block">
+                <a class="inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="{{ item.url | safe | replace(from="$BASE_URL", to=config.base_url) }}">{{ item.name }}</a>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+    {% endif %}
+  {% endblock %}
+  <main class="prose p-4 mx-auto flex-grow w-screen">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="mx-auto text-center p-4">
+    Content for this site is <a class="text-blue-500 hover:text-blue-800" href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.
+    <a class="text-blue-500 hover:text-blue-800" href="https://github.com/indiv0/frecency.com">Code for this site</a>
+    is <a class="text-blue-500 hover:text-blue-800" href="https://spdx.org/licenses/GPL-3.0-or-later.html">GPL-3.0-or-later</a>.
+    <br>
+    &#169; 2014-2020 Nikita Pekin
+  </footer>
 </body>
 </html>
