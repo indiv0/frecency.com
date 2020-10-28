@@ -31,6 +31,6 @@ In `.zshrc`, I added all of my bash aliases, and added the following line to sta
 ```
 
 So far, this is the end result:
-![Resulting ZSH powerline](/images/powerline-result.png).
+![Resulting ZSH powerline](/images/powerline-result.png)
 
 I hope to further improve on it in the near future.
