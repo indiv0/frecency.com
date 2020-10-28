@@ -1,4 +1,4 @@
-# blog.frecency.dev
+# frecency.com
 ## Quickstart
 
 Install the prerequisites: `yarn` and `docker`.
@@ -20,7 +20,7 @@ docker build -t zola .
 
 Run a `zola` server to serve the website during development:
 ```sh
-docker run --rm\
+docker run --rm --name frecency.com\
     -v $(pwd)/config.toml:/app/config.toml\
     -v $(pwd)/content:/app/content\
     -v $(pwd)/static:/app/static\
@@ -30,7 +30,7 @@ docker run --rm\
 
 Build the website for publishing:
 ```sh
-docker run --rm\
+docker run --rm --name frecency.com\
     -v $(pwd)/config.toml:/app/config.toml\
     -v $(pwd)/content:/app/content\
     -v $(pwd)/dist:/app/dist\
@@ -41,5 +41,5 @@ docker run --rm\
 
 Deploy the website to S3:
 ```
-aws s3 cp --recursive dist/public/ s3://blog.frecency.com/
+aws s3 cp --recursive dist/public/ s3://frecency.com/
 ```
