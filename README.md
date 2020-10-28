@@ -1,6 +1,18 @@
 # blog.frecency.dev
 ## Quickstart
 
+Install the prerequisites: `yarn` and `docker`.
+
+Install TailwindCSS.
+```sh
+yarn install
+```
+
+Compile the styles.
+```sh
+NODE_ENV=production yarn run tailwindcss build style.css -o static/style.css
+```
+
 Build the docker container containing `zola`:
 ```sh
 docker build -t zola .

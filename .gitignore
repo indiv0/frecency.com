@@ -1,1 +1,5 @@
+# zola
 dist
+# yarn
+node_modules
+static/style.css
