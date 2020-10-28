@@ -29,5 +29,5 @@ docker run --rm\
 
 Deploy the website to S3:
 ```
-aws s3 cp --recursive dist/public/ s3://blog.frecency.dev/
+aws s3 cp --recursive dist/public/ s3://blog.frecency.com/
 ```
