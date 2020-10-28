@@ -24,7 +24,7 @@ docker run --rm\
     -v $(pwd)/dist:/app/dist\
     -v $(pwd)/static:/app/static\
     -v $(pwd)/templates:/app/templates\
-    --publish 1111:1111 zola build --output-dir dist/public
+    zola build --output-dir dist/public
 ```
 
 Deploy the website to S3:
