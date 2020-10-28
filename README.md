@@ -30,7 +30,7 @@ docker run --rm --name frecency.com\
 
 Build the website for publishing:
 ```sh
-docker run --rm --name frecency.com\
+docker run --rm\
     -v $(pwd)/config.toml:/app/config.toml\
     -v $(pwd)/content:/app/content\
     -v $(pwd)/dist:/app/dist\
