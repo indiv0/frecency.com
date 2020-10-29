@@ -10,7 +10,7 @@
          stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 			<path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
     </svg>
-    Published: <strong>{{ page.date }}</strong>
+    Published: <strong><time datetime="{{ page.date }}">{{ page.date }}</time></strong>
 </header>
 {{ page.content | safe }}
 {% endblock content %}
