@@ -1,3 +1,6 @@
+# Title of the website.
+title = "frecency"
+
 # The URL the site will be built for
 base_url = "https://frecency.com"
 
