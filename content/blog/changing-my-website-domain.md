@@ -16,7 +16,7 @@ I will however move content from my [_old old_ blog](https://nikitapek.in) to
 the new one and setup redirects for its pages since that one has been up for
 ~6 years and does receive a modest amount of traffic.
 
-First, per [my article](../new-website) on how I
+First, per [my article](@/blog/new-website.md) on how I
 initially setup this website, I need to first create a new S3 bucket for the
 site. I'll use the same settings for bucket policy, DNS, and Cloudflare workers
 as before, just for the new domain. Note that I need to modify the existing
