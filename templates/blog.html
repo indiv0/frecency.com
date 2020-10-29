@@ -4,9 +4,18 @@
 <h1>
   {{ section.title }}
 </h1>
-<ul>
-  {% for page in section.pages %}
-  <li><strong><time datetime="{{ page.date }}">{{ page.date }}</time></strong> <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
+{% for page in section.pages %}
+  <article>
+    <header class="flex justify-between">
+      <a href="{{ page.permalink | safe }}">
+        {{ page.title }}
+      </a>
+      <strong class="font-mono">
+        <time datetime="{{ page.date }}">
+          {{ page.date }}
+        </time>
+      </strong>
+    </header>
+  </article>
+{% endfor %}
 {% endblock content %}
