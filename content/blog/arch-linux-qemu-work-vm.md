@@ -264,6 +264,11 @@ systemctl enable systemd-networkd
 systemctl start systemd-resolved
 systemctl enable systemd-resolved
 ```
+I also needed to replace the default `resolv.conf` with the systemd one.
+```sh
+rm /etc/resolv.conf
+ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
+```
 I added my user to the machine:
 ```sh
 useradd -m npekin
